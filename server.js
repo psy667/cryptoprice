@@ -6,7 +6,6 @@ const path = require('path');
 
 app.use(express.static(path.join(__dirname, 'build')));
 
-
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
@@ -19,21 +18,28 @@ const server = app.listen(port, () => {
 
 const io = require('socket.io').listen(server);
 
-const url = 'https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD&api_key=b07074183c09ca066eb36310f0abb091f37a294ff88f50a1fafd6941000cba71';
-
-io.on('connection', socket => {
-  console.log('a user connected');
-  io.emit('event', state.data);
-
-});
+const API_URL = 'https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD&api_key=b07074183c09ca066eb36310f0abb091f37a294ff88f50a1fafd6941000cba71';
 
 const state = {
-  data: []
+  data: [],
+  users: 0
 };
+
+io.on('connection', socket => {
+  state.users++;
+  io.emit('event', state.data);
+  socket.on('disconnect', () => {
+    state.users--;
+    console.log('user disconnected');
+  });
+});
+
+
+
 
 const getData = async () => {
   try{
-    const response = await axios.get(url);
+    const response = await axios.get(API_URL);
     const data = response.data.Data.map((item, i) => {
       return {
         number: i+1,
@@ -45,23 +51,20 @@ const getData = async () => {
         price: item.RAW.USD.PRICE,
       };
     });
-
-    // state.data = data;
     state.data = data;
-    // console.log(data);
+
   } catch (error) {
     console.error(error);
   }
 };
 
-getData();
-// console.log()
-// setTimeout(() => console.log(state.data), 2000);
 setInterval(() => {
-  getData();
+  if(state.users > 0){
+    getData();
+  }
 }, 1000);
-
 
 setInterval(() => {
   io.emit('event', state.data);
+  io.emit('users', state.users);
 }, 1000);

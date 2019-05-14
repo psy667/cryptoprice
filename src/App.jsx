@@ -22,7 +22,7 @@ class App extends Component {
     this.state = {
       rawData: testData,
       filterData: testData,
-
+      users: '',
       sorting: {
         number: true,
         name: null,
@@ -66,6 +66,11 @@ class App extends Component {
       // this.toggleSortOrder(sortProp);
       console.log(msg);
     });
+
+    this.socket.on('users', data => {
+      console.log(data);
+      this.setState({users: data});
+    });
     // this.sort('price', 1)();
   }
   render() {
@@ -84,7 +89,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <div className='logo'>CryptoTop</div>
-          <a class='btn' href='https://github.com/psy667/cryptoprice'>GitHub</a>
+          <a className='btn' href='https://github.com/psy667/cryptoprice'>GitHub</a>
         </header>
         <main>
           <div className='table'>
@@ -94,6 +99,7 @@ class App extends Component {
             <div className='table-items'>
               { renderList }
             </div>
+            <div className='users-counter'>Online users: {this.state.users}</div>
           </div>
         </main>
       </div>

@@ -39,7 +39,6 @@ header .btn{
   border-radius: 5px;
 }
 main{
-  overflow-x: scroll;
 
 }
 .table{
@@ -86,8 +85,13 @@ button.sorting:hover > .arrow{
 .arrowDown{
   transform: translate(4px) rotate(180deg);
 }
+.users-counter{
+  color: #fff;
+  opacity: .3;
+}
 @media (max-width: 600px) {
     main{
+      overflow-x: scroll;
       zoom: 75%;
 
     }

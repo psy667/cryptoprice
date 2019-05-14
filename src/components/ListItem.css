@@ -28,6 +28,8 @@ span{
 .name{
   width: 30%;
   font-weight: bold;
+  white-space: nowrap;
+
 }
 .shortName{
   margin-left: 20px;
@@ -61,4 +63,10 @@ span{
 .chart.active{
   margin-top: -50px;
   height: 300px;
+}
+
+@media (max-width: 600px) {
+  .name{
+    white-space: nowrap;
+  }
 }
