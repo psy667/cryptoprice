@@ -5,7 +5,7 @@ const axios = require('axios');
 
 app.use(express.static('build'));
 
-const port = 8080;
+const port = 80;
 const server = app.listen(port, () => {
   /* eslint-disable no-console */
   console.log(`Server was started on '${port}'`);
@@ -48,9 +48,6 @@ const getData = async () => {
   }
 };
 
-getData();
-// console.log()
-// setTimeout(() => console.log(state.data), 2000);
 setInterval(() => {
   getData();
 }, 1000);
