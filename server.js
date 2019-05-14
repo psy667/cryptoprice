@@ -2,10 +2,16 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const axios = require('axios');
+const path = require('path');
 
-app.use(express.static('build'));
+app.use(express.static(path.join(__dirname, 'build')));
 
-const port = 5000;
+
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+const port = process.env.PORT || 5000;
 const server = app.listen(port, () => {
   /* eslint-disable no-console */
   console.log(`Server was started on '${port}'`);
