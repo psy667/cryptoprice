@@ -1,7 +1,7 @@
 ### CryptoTop
 *Cryptocurrency's price monitoring in real-time*  
 
-http://cryptotop.heroku.com
+http://cryptotop.herokuapp.com
 
 * Node.js
 * Express  
@@ -10,4 +10,4 @@ http://cryptotop.heroku.com
 
 
 
-Author: __psy667__
+Design and development: __psy667__
