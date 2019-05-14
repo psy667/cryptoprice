@@ -1,8 +1,15 @@
+html{
+  font-size: 16px;
+}
 .App{
   background: radial-gradient(728.50px at 50% 50%, #343956 0%, #2C324C 100%);
   /* min-height: 100vh; */
   /* height: 100vh; */
+  min-height: calc(100vh - 100px);
+
   padding-bottom: 100px;
+  overflow-x: hidden;
+
 }
 header{
   width: 100%;
@@ -16,13 +23,14 @@ header{
 }
 .logo{
   /* line-height: 100px; */
-  font-size: 24px;
-  text-transform: uppercase;
+  font-size: 1.5rem;
   color: #fff;
-  font-family: "Courier New";
+  font-family: "Courier New", monospace;
 }
-header button{
+header .btn{
   /* height: 30px; */
+  color: #000;
+  text-decoration: none;
   padding: 10px 20px;
   outline: 0;
   border: 0;
@@ -31,10 +39,14 @@ header button{
   border-radius: 5px;
 }
 main{
-  width: 800px;
-  margin: auto;
+  overflow-x: scroll;
+
 }
 .table{
+  margin: auto;
+  width: 100%;
+  min-width: 600px;
+  max-width: 800px;
   margin-top: 40px;
 }
 
@@ -43,7 +55,7 @@ main{
 }
 
 button.sorting{
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #FFF;
   opacity: 0.5;
   background: 0;
@@ -73,4 +85,26 @@ button.sorting:hover > .arrow{
 }
 .arrowDown{
   transform: translate(4px) rotate(180deg);
+}
+@media (max-width: 600px) {
+    main{
+      zoom: 75%;
+
+    }
+    header{
+      height: 60px;
+      padding: 10px;
+    }
+}
+@media (max-width: 500px) {
+    main{
+      zoom: 60%;
+
+    }
+}
+@media (max-width: 350px) {
+    main{
+      zoom: 50%;
+
+    }
 }

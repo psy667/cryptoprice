@@ -83,8 +83,8 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <div className='logo'>Cryproprice</div>
-          <button>GitHub</button>
+          <div className='logo'>CryptoTop</div>
+          <a class='btn' href='https://github.com/psy667/cryptoprice'>GitHub</a>
         </header>
         <main>
           <div className='table'>
