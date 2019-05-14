@@ -1,0 +1,64 @@
+.item{
+  width: 100%;
+  margin-bottom: 20px;
+}
+.values{
+  background: radial-gradient(717.00px at 50% 50%, #3e4567 0%, #3A4465 100%);
+  border-radius: 10px;
+  height: 70px;
+  display: flex;
+  font-size: 18px;
+  line-height: 70px;
+  color: #E5E5E5;
+  box-shadow: 0px 0px 80px -10px #272D49;
+  font-family: monospace;
+  transform: translate(0px);
+}
+.values:hover{
+  background: radial-gradient(717.00px at 50% 50%, #444C71 0%, #3A4465 100%);
+
+}
+span{
+  padding: 0 10px;
+}
+.number{
+  width: 10%;
+  text-align: center;
+}
+.name{
+  width: 30%;
+  font-weight: bold;
+}
+.shortName{
+  margin-left: 20px;
+  color: rgba(229, 229, 229, 0.5);
+}
+.marketCap{
+  width: 20%;
+}
+.change{
+  width: 20%;
+}
+.change.up{
+  color: #28FF7E;
+  text-shadow: 0 0 40px #28FF7E;
+}
+.change.down{
+  color: #FF5252;
+  text-shadow: 0 0 40px #8f0000;
+}
+.price{
+  width: 20%;
+  font-weight: bold;
+}
+
+.chart{
+  border-radius: 10px;
+  width: 100%;
+  background: radial-gradient(717.00px at 50% 50%, #444C71 0%, #3A4465 100%);
+  z-index: -1;
+}
+.chart.active{
+  margin-top: -50px;
+  height: 300px;
+}
