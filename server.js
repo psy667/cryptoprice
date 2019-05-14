@@ -5,7 +5,7 @@ const axios = require('axios');
 
 app.use(express.static('build'));
 
-const port = 500;
+const port = 5000;
 const server = app.listen(port, () => {
   /* eslint-disable no-console */
   console.log(`Server was started on '${port}'`);
